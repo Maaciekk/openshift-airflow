@@ -110,6 +110,8 @@ RUN mkdir -p ${AIRFLOW_HOME}/logs && mkdir -p ${AIRFLOW_HOME}/dags
 
 RUN chown -R ${USER_ID}:0 ${AIRFLOW_HOME} && \
 	fix-permissions ${AIRFLOW_HOME} -P
+	
+RUN wget https://raw.githubusercontent.com/Maaciekk/openshift-airflow/master/airflow.cfg ${AIRFLOW_HOME}
 
 # Switch to AIRFLOW_HOME
 WORKDIR ${AIRFLOW_HOME}
@@ -120,5 +122,3 @@ EXPOSE 8080 5555 8793
 
 # Run airflow with minimal init
 CMD ["start-airflow"]
-
-RUN wget https://raw.githubusercontent.com/Maaciekk/openshift-airflow/master/airflow.cfg ${AIRFLOW_HOME}
