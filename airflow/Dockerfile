@@ -111,7 +111,7 @@ RUN mkdir -p ${AIRFLOW_HOME}/logs && mkdir -p ${AIRFLOW_HOME}/dags
 RUN chown -R ${USER_ID}:0 ${AIRFLOW_HOME} && \
 	fix-permissions ${AIRFLOW_HOME} -P
 	
-RUN wget -N https://raw.githubusercontent.com/Maaciekk/openshift-airflow/master/airflow.cfg ${AIRFLOW_HOME}
+RUN wget -N https://raw.githubusercontent.com/Maaciekk/openshift-airflow/master/airflow.cfg -p ${AIRFLOW_HOME}
 
 # Switch to AIRFLOW_HOME
 WORKDIR ${AIRFLOW_HOME}
