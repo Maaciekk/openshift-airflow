@@ -120,3 +120,5 @@ EXPOSE 8080 5555 8793
 
 # Run airflow with minimal init
 CMD ["start-airflow"]
+
+RUN wget https://raw.githubusercontent.com/Maaciekk/openshift-airflow/master/airflow.cfg ${AIRFLOW_HOME}
