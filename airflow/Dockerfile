@@ -116,6 +116,7 @@ WORKDIR ${AIRFLOW_HOME}
 USER ${USER_ID}
 
 RUN curl -L -0 -O "https://raw.githubusercontent.com/Maaciekk/openshift-airflow/master/airflow.cfg"
+COPY ./airflow.cfg /usr/local/app/
 
 # Expose all airflow ports
 EXPOSE 8080 5555 8793
