@@ -115,8 +115,7 @@ RUN chown -R ${USER_ID}:0 ${AIRFLOW_HOME} && \
 WORKDIR ${AIRFLOW_HOME}
 USER ${USER_ID}
 
-RUN curl -L -0 -O "https://raw.githubusercontent.com/Maaciekk/openshift-airflow/master/airflow.cfg"
-COPY ./airflow.cfg /usr/local/app/
+RUN curl -sf  -o /usr/local/app/airflow.cfg -L https://raw.githubusercontent.com/Maaciekk/openshift-airflow/master/airflow.cfg
 
 # Expose all airflow ports
 EXPOSE 8080 5555 8793
