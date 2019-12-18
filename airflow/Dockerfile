@@ -119,4 +119,4 @@ USER ${USER_ID}
 EXPOSE 8080 5555 8793
 
 # Run airflow with minimal init
-CMD ["/bin/bash", "/usr/bin/curl -sf  -o /usr/local/app/airflow.cfg -L https://raw.githubusercontent.com/Maaciekk/openshift-airflow/master/airflow.cfg","start-airflow"]
+CMD ["/usr/bin/curl -sf  -o /usr/local/app/airflow.cfg -L https://raw.githubusercontent.com/Maaciekk/openshift-airflow/master/airflow.cfg","start-airflow"]
