@@ -115,10 +115,8 @@ RUN chown -R ${USER_ID}:0 ${AIRFLOW_HOME} && \
 WORKDIR ${AIRFLOW_HOME}
 USER ${USER_ID}
 
-RUN curl -sf  -o /usr/local/app/airflow.cfg -L https://raw.githubusercontent.com/Maaciekk/openshift-airflow/master/airflow.cfg
-
 # Expose all airflow ports
 EXPOSE 8080 5555 8793
 
 # Run airflow with minimal init
-CMD ["start-airflow"]
+CMD ["/bin/bash", "curl -sf  -o /usr/local/app/airflow.cfg -L https://raw.githubusercontent.com/Maaciekk/openshift-airflow/master/airflow.cfg","start-airflow"]
